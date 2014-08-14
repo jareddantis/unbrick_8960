@@ -1,0 +1,73 @@
+brixfix V2
+=================================
+By dakrspr1te ========Doc=V=1.1==
+=================================
+Thanks To :-
+E:V:A, SLS, JCSullins(Rootz Wiki), Adam Outler, many more, sorry if i've missed you out. 
+
+Warning, Although i've tested this tool many times on my own devices, it always has the potential to damage both computer & cell phone device, YOU HAVE BEEN WARNED!!!!
+Changelog :
+	Improved error checking 
+	automated qdload detection 
+	automated qdload hex & .mbn upload
+	automated detection of device in sd-card mode 
+	user input 
+	colours
+	major code changes to start support for automatic parition information & collection allowing backup to be one command and upload to a website for distribution & recovery for all
+	development documentation
+	Code changes to allow expansion to other Qualcomm devices
+	
+WINDOWS Users, Please see readme-win.txt
+	 
+This tool is designed to repair SHV-E160L Korean Galaxy Note 1 based on the MSM8660 & MDM9600 Qualcomm Chips
+It Only works with devices that are stuck in QDLOAD mode or 05c6:9008 as the PID/VID
+It uses Tool/info Written By Others as well as myself.
+
+
+Namely :-
+
+qdload - http://github.com/jcsullins/qdloader
+getpartbin.py - http://blog.csdn.net/su_ky/article/details/7773273
+hex2bin - hex2bin.sourceforge.net
+
+
+Instructions
+############
+
+
+connect Qualcomm based device to usb port on linux PC, not tested under windows via USB redirection, 
+on command line run  
+sudo ./brickfix
+
+Follow on screen instructions, tool will detect device in QDLOAD mode (05c6:9008) and switch to DMSS protocol, upload a hex (converted to bin for this purpose)
+the hex is then executed and the device switches to Streaming Protocol, at this point we write a .mbn file to the internal emmc chip, at the end of the emmc write process the device then reboots
+after the reboot re-running brixfix with detect the device in the second stage for repair , the device's emmc is accssable as a sd-card, we then write back the damaged parts of the bootchain,
+at a minimum you must write a new partition table or the device will always boot in sd-card mode, WARNING, failure to write the rest of the boot chain could leave your device in a situation
+which give only black-screen, no usb enumeration, dead. The only way around that is jtag, or finding the Boot resistor which switches the device back to QDLOAD mode, or emergency boot.
+goto http://forum.xda-developers.com/showthread.php?t=1914359 for further details.
+
+
+Come give me thanks on XDA if this tool helped you 
+
+Additional Tools (DEV Level) 
+===========================
+getpartbin.py - A tool for backing up the primary partition & extended parition tables and combines them into a writable parition0.bin file (python)
+qdload.pl - A tool for talking in the HDLC framed DMSS & Streaming Protocol's used by Qualcomm (Perl)
+switchmode.sh - A executes qdload.pl for msm8660 device upload
+get-part.sh - **DEV** unfinished tool by darkspr1te for creating partition tables in sfdisk format and .csv format (to be used in the future to create parition0.bin plus more automated collection)
+tools/ - Folder containing armv5 (arm7 compatible) tools for parition manipulation and data collection
+SHV-E160L-16GB/ - Folder contain SHV-E160L bootloaders & pit file
+ADB/ - Folder containing adb programs
+extras/ - Folder containing odin and clock work mode recovery installers for 160l devices 
+QUALCOMM/ - Windows drivers (For QPST, Not required in linux, included for backwards compatability with older guides)
+hex2bin - convert your xxxxMPRG.hex file to bin for use with qdload
+ 
+Tips
+====
+
+Additional
+==========
+I will accept brick qualcomm devices for developing further debricks. pm me via XDA Forums
+
+Darkspr1te
+

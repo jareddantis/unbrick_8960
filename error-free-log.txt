@@ -1,0 +1,61 @@
+mkdir: cannot create directory `backup': File exists
+Backing up Bootloaders
+
+ if any of the following fail with errors do no reboot your device, correct the error and re-execute
+
+1000+0 records in
+1000+0 records out
+512000 bytes transferred in 0.059 secs (8677966 bytes/sec)
+2465 KB/s (512000 bytes in 0.202s)
+3000+0 records in
+3000+0 records out
+1536000 bytes transferred in 0.174 secs (8827586 bytes/sec)
+3483 KB/s (1536000 bytes in 0.430s)
+1000+0 records in
+1000+0 records out
+512000 bytes transferred in 0.064 secs (8000000 bytes/sec)
+2416 KB/s (512000 bytes in 0.206s)
+4096+0 records in
+4096+0 records out
+2097152 bytes transferred in 0.217 secs (9664294 bytes/sec)
+3514 KB/s (2097152 bytes in 0.582s)
+5000+0 records in
+5000+0 records out
+2560000 bytes transferred in 0.347 secs (7377521 bytes/sec)
+3537 KB/s (2560000 bytes in 0.706s)
+1000+0 records in
+1000+0 records out
+512000 bytes transferred in 0.028 secs (18285714 bytes/sec)
+3487 KB/s (512000 bytes in 0.143s)
+Copying bootloaders to device - /sdcard/
+
+
+5389 KB/s (512000 bytes in 0.092s)
+4760 KB/s (1536000 bytes in 0.315s)
+4901 KB/s (512000 bytes in 0.102s)
+4276 KB/s (2097152 bytes in 0.478s)
+3497 KB/s (512000 bytes in 0.142s)
+
+Copying Bootloaders to MMC
+ Restoring Chain of trust
+1000+0 records in
+1000+0 records out
+512000 bytes transferred in 0.170 secs (3011764 bytes/sec)
+3000+0 records in
+3000+0 records out
+1536000 bytes transferred in 0.307 secs (5003257 bytes/sec)
+1000+0 records in
+1000+0 records out
+512000 bytes transferred in 0.154 secs (3324675 bytes/sec)
+4096+0 records in
+4096+0 records out
+2097152 bytes transferred in 0.619 secs (3387967 bytes/sec)
+1000+0 records in
+1000+0 records out
+512000 bytes transferred in 0.102 secs (5019607 bytes/sec)
+
+Restore complete, 
+if any error occurs please resolve the error and re-execute this script, dont reboot the phone or you could 
+end with a bootloop or worse a hang before aboot.mbn (little kernel/download mode loader) is executed and odin mode is activated
+the hang will require JTAG or a hardware mod to reactivate QDload mode, you will then need to run brixfix.sh 
+
