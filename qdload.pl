@@ -337,19 +337,16 @@ sub execute {
 
     if ( !sendPacket( $fd, deserialize( "05 " . serial32($address) ) ) ) {
         print "Failed to send packed\n";
-        print "execute failed\n";
-        exit 1;
+        return undef;
     }
     if ( !( $response = readPacket( $fd, 5.0 ) ) ) {
         print "Failed to get response.\n";
-        print "execute failed\n";
-        exit 1;
+        return undef;
     }
 
     my @responseBytes = unpack( 'C*', $response );
     if ( scalar @responseBytes != 1 || $responseBytes[0] != 2 ) {
         print "Invalid Response: ", serialize($response), "\n";
-        print "execute failed\n";
         exit 1;
     }
     return 1;
@@ -869,7 +866,7 @@ sub doResetStage {
     close($fd);
 }
 
-sub doTestCmd {
+sub doHelloCmd {
     my $cmd = shift;
     my $retval;
     my $response;
@@ -881,6 +878,20 @@ sub doTestCmd {
     }
 
     doMagic($fd);
+
+    close($fd);
+}
+
+sub doTestCmd {
+    my $cmd = shift;
+    my $retval;
+    my $response;
+    my ( $fd, $tty ) = setupTTY();
+
+    if ( !defined $fd ) {
+        print "Failed to find/open TTY.\n";
+        exit 1;
+    }
 
     print "Sending cmd '", $cmd, "'\n";
     if ( !sendPacket( $fd, deserialize($cmd) ) ) {
@@ -935,12 +946,14 @@ my $opts_lfile;
 my $opts_laddr;
 my $opts_lreset;
 my $opts_testcmd;
+my $opts_hellocmd;
 
 $opts_result = GetOptions(
     "pfile=s"   => \$opts_pfile,
     "lfile=s"   => \$opts_lfile,
     "laddr=o"   => \$opts_laddr,
     "testcmd=s" => \$opts_testcmd,
+    "hello"     => \$opts_hellocmd,
     "lreset"    => \$opts_lreset
 );
 
@@ -954,6 +967,7 @@ if ( $num_remaining_args > 0 ) {
 if (   !defined($opts_pfile)
     && !defined($opts_lfile)
     && !defined($opts_lreset)
+    && !defined($opts_hellocmd)
     && !defined($opts_testcmd) )
 {
     doUsage();
@@ -962,6 +976,11 @@ if (   !defined($opts_pfile)
 
 if ( defined($opts_testcmd) ) {
     doTestCmd($opts_testcmd);
+    exit(0);
+}
+
+if ( defined($opts_hellocmd) ) {
+    doHelloCmd();
     exit(0);
 }
 
