@@ -7,7 +7,7 @@
 QDLOADID="05c6:9008"
 DLOADID="05c6:9008"
 SDMODE="05c6:9025"
-MODEL="SHV-E160L-16GB"
+MODEL="SCH-I535-16GB"
 DEVICEID=/dev/disk/by-id/usb-Qualcomm_MMC_Storage-0\:0
 
 DEVICE=`ls -lah /dev/disk/by-id/ | grep usb\-Qualcomm_MMC | head -n 1 | awk '{ print $11 }' | sed 's/\..\/..//'`
@@ -36,7 +36,7 @@ if test "$USBID" = "$DLOADID"
 			echo
 		    echo "Executing qdload "
 		    #exit
-			perl qdload.pl -pfile MPRG8660.bin -lfile 8660_msimage.mbn -lreset
+			perl qdload.pl -pfile MPRG8960.hex -lfile 8960_msimage.mbn -lreset
 			echo 
 			echo "If HEX/MBN uploaded correctly, please allow for short delay and re-run brixfix to continue the debricking session, a screen showing device options may appear, close this new screen"
 			exit 
@@ -98,11 +98,11 @@ if test "$USBID" = "$SDMODE"
 		if [ $choice == "y" ]
 			then
 				echo "Writing bootloaders sbl1,sbl2,sbl3,rpm,aboot to /dev$DEVICE"
-				dd  if=$MODEL/sbl1.mbn of=/dev$DEVICE  seek=204801 count=500 bs=512 
-				dd  if=$MODEL/sbl2.mbn of=/dev$DEVICE  seek=205801 count=1500 bs=512 
-				dd  if=$MODEL/rpm.mbn of=/dev$DEVICE  seek=212992 count=500 bs=512
-				dd  if=$MODEL/sbl3.mbn of=/dev$DEVICE  seek=221184 count=2048 bs=512 
-				dd  if=$MODEL/aboot.mbn of=/dev$DEVICE  seek=229376 count=2500 bs=512 
+				dd  if=$MODEL/sbl1.mbn of=/dev$DEVICE  seek=131072 count=500 bs=512
+				dd  if=$MODEL/sbl2.mbn of=/dev$DEVICE  seek=131328 count=1500 bs=512
+				dd  if=$MODEL/sbl3.mbn of=/dev$DEVICE  seek=131840 count=2048 bs=512
+				dd  if=$MODEL/aboot.mbn of=/dev$DEVICE  seek=132864 count=2500 bs=512
+				dd  if=$MODEL/rpm.mbn of=/dev$DEVICE  seek=136960 count=500 bs=512
 				choice="n"
 				echo
 			fi
@@ -116,7 +116,7 @@ if test "$USBID" = "$SDMODE"
 			if [ $choice == "y" ]
 				then
 					echo "Writing TrustZone to /dev/$DEVICE"
-					dd  if=$MODEL/tz.mbn of=/dev$DEVICE  seek=262144 count=500 bs=512 
+					dd  if=$MODEL/tz.mbn of=/dev$DEVICE  seek=158464 count=500 bs=512 
 					choice="n"
 			fi
 
