@@ -1,9 +1,9 @@
-unbrick_8960 version 1.1
+unbrick_8960 (version 1.1)
 =================================
 
 ## What is it?
  
-This tool is designed to repair devices with the Qualcomm chip MSM8960.
+This tool is designed to unbrick devices with the Qualcomm chip MSM8960.
 It only works with devices that are stuck in QDLOAD (`05c6:9008`) / SDBOOT (`05c6:9025`) mode.
 
 ## How do I use it?
@@ -14,7 +14,7 @@ It only works with devices that are stuck in QDLOAD (`05c6:9008`) / SDBOOT (`05c
 
 ## What does it do?
 
-This tool will detect device in QDLOAD mode, switch to DMSS protocol and upload a hex (converted to bin for this purpose).
+This tool will detect devices in QDLOAD mode, switch to DMSS protocol and upload a hex (converted to bin for this purpose).
 
 The hex is then executed and the device switches to Streaming Protocol, at this point we write a .mbn file to the internal
 eMMC chip, at the end of the emmc write process the device then reboots.
@@ -31,17 +31,16 @@ which switches the device back to QDLOAD mode, or emergency boot.
 Go to [this XDA thread](http://forum.xda-developers.com/showthread.php?t=1914359) for further details.
 
 
-## Additional Tools (DEV Level) 
+## Additional Tools (for developers) 
 
 * `scripts/getpartbin.py` - Python script for backing up the primary partition & extended partition tables and combines them into a
-writable parition0.bin file (python)
+writable parition0.bin file
 * `scripts/qdload.pl` - Perl script for talking in the HDLC framed DMSS & Streaming Protocols used by Qualcomm
 * `scripts/get-part.sh` - **UNFINISHED** script by darkspr1te for creating partition tables in sfdisk format and .csv format
 (to be used in the future to create partition0.bin plus more automated collection)
-* `scripts/backup.sh` and `scripts/backup.bat` - Scripts for pulling needed partitions from a **working** device
+* `scripts/backup.sh` - Script for pulling needed partitions from a **working** device
 * `binaries/` - Folder containing armv5 (armv7 compatible) tools for partition manipulation and data collection
 * `binaries/hex2bin` - convert your xxxxMPRG.hex file to bin for use with qdload
-* `adb/` - Folder containing adb for 32/64bit Linux machines
 * `qpst-drivers/` - Windows drivers (only included for convenience)
 
  
