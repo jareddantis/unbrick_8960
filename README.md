@@ -5,23 +5,22 @@ unbrick_8960 version 1.1
  
 This tool is designed to repair devices with the Qualcomm chip MSM8960.
 It only works with devices that are stuck in QDLOAD (`05c6:9008`) / SDBOOT (`05c6:9025`) mode.
-Windows users, please see `readme-win.txt`.
 
 ## How do I use it?
 
-1. Connect device to USB port on a Linux PC. **Not tested under Windows via USB redirection!**
-2. Run `sudo ./unbrick.sh` in a terminal.
+1. Connect device to USB port on a Linux PC.
+2. Run `sudo ./unbrick.sh` in a terminal. Make sure it is executable.
 3. Follow on screen instructions.
 
 ## What does it do?
 
-This tool will detect device in QDLOAD mode and switch to DMSS protocol and upload a hex (converted to bin for this purpose).
+This tool will detect device in QDLOAD mode, switch to DMSS protocol and upload a hex (converted to bin for this purpose).
 
 The hex is then executed and the device switches to Streaming Protocol, at this point we write a .mbn file to the internal
-emmc chip, at the end of the emmc write process the device then reboots.
+eMMC chip, at the end of the emmc write process the device then reboots.
 
-After the reboot re-running brixfix with detect the device in the second stage for repair, 
-the device's emmc is accssable as an SD card, we then write back the damaged parts of the bootchain.
+After the reboot re-running `unbrick.sh` with detect the device in the second stage for repair, 
+the device's eMMC is accessible as an SD card, we then write back the damaged parts of the bootchain.
 
 You must write a new partition table or the device will always boot in SD card mode.
 
@@ -40,10 +39,10 @@ writable parition0.bin file (python)
 * `scripts/get-part.sh` - **UNFINISHED** script by darkspr1te for creating partition tables in sfdisk format and .csv format
 (to be used in the future to create partition0.bin plus more automated collection)
 * `scripts/backup.sh` and `scripts/backup.bat` - Scripts for pulling needed partitions from a **working** device
-* `binaries/` - Folder containing armv5 (arm7 compatible) tools for partition manipulation and data collection
+* `binaries/` - Folder containing armv5 (armv7 compatible) tools for partition manipulation and data collection
 * `binaries/hex2bin` - convert your xxxxMPRG.hex file to bin for use with qdload
-* `adb/` - Folder containing adb programs
-* `qpst-drivers/` - Windows drivers (For QPST, Not required in linux, included for backwards compatability with older guides)
+* `adb/` - Folder containing adb for 32/64bit Linux machines
+* `qpst-drivers/` - Windows drivers (only included for convenience)
 
  
 ## Credits

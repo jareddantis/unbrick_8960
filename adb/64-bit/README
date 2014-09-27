@@ -1,0 +1,37 @@
+This is the Android Debug Bridge (ADB).  It is made available under the terms
+of the Apache 2.0 License in LICENSE.  Its source code is available originally
+at <http://source.android.com/>, although this version was built from source
+code available at <http://packages.ubuntu.com/source/raring/android-tools>;
+and you can reproduce this package via the following instructions
+(for Ubuntu 13.04 Raring):
+
+1. sudo apt-get build-dep android-tools-adb
+2. apt-get source android-tools-adb
+3. cd android-tools-4.2.2+git20130218/
+
+4. Apply this patch to debian/makefiles/adb.mk (to link libcrypto statically,
+so the executable works on Linux installations with different versions of it):
+
+--- debian/makefiles/adb.mk	2013-03-26 14:15:41.000000000 -0700
++++ adb-static-crypto.mk	2013-06-06 16:51:52.794521267 -0700
+@@ -40,15 +40,16 @@
+ CPPFLAGS+= -I.
+ CPPFLAGS+= -I../include
+ CPPFLAGS+= -I../../../external/zlib
++CPPFLAGS+= -I/usr/include/openssl
+ 
+-LIBS+= -lc -lpthread -lz -lcrypto
++LIBS+= -lc -lpthread -lz -ldl
+ 
+ OBJS= $(SRCS:.c=.o)
+ 
+ all: adb
+ 
+ adb: $(OBJS)
+-	$(CC) -o $@ $(LDFLAGS) $(OBJS) $(LIBS)
++	$(CC) -o $@ $(LDFLAGS) $(OBJS) /usr/lib/x86_64-linux-gnu/libcrypto.a $(LIBS)
+ 
+ clean:
+ 	rm -rf $(OBJS) adb
+
+5. cd core/adb && make -f ../../debian/makefiles/adb.mk

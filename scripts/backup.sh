@@ -1,7 +1,10 @@
 #!/bin/bash
-adb="../adb/adb"
 
-chmod 0755 $adb
+if [ $(uname -m) == "x86_64" ]; then
+	adb="../adb/64-bit/adb"
+else
+	adb="../adb/32-bit/adb"
+fi
 
 echo "Waiting for device"
 $adb wait-for-device

@@ -7,6 +7,11 @@ DEVICE=`ls -lah /dev/disk/by-id/ | grep usb\-Qualcomm_MMC | head -n 1 | awk '{ p
 USBNAME=`lsusb | grep Qualcomm  ` 
 USBID=`lsusb | grep Qualcomm  | awk '{ print $6 }'` 
 
+chmod 0755 binaries/*
+chmod 0755 scripts/*
+chmod -R 0755 adb/*
+chmod -R 0777 devices/*
+
 echo ""
 echo -e "\033[38;5;148munbrick_8960 v1.1\033[39m"
 echo ""
@@ -31,7 +36,6 @@ else
 fi
 
 echo -n "Checking for Qualcomm devices in QDLOAD mode... "
-
 if [ $USBID == $DLOADID ]; then 
 	echo -e "found!"
 	choice="n"
