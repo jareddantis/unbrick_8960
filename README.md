@@ -3,7 +3,7 @@ unbrick_8960 (version 1.1)
 
 ## What is it?
  
-This tool is designed to unbrick devices with the Qualcomm chip MSM8960.
+This tool is designed to unbrick devices with Qualcomm chips MSM8960/8930 and APQ8064.
 It only works with devices that are stuck in QDLOAD (`05c6:9008`) / SDBOOT (`05c6:9025`) mode.
 
 ## How do I use it?

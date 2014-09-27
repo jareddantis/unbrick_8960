@@ -11,6 +11,13 @@ chmod 0755 binaries/*
 chmod 0755 scripts/*
 chmod -R 0755 adb/*
 chmod -R 0777 devices/*
+chmod -R 0777 hexmbn/*
+
+printf '\033c'
+if [ $(whoami) != "root" ]; then
+	echo -e "\e[00;31mError:\e[00m Not running as root. Exiting."
+	exit 1
+fi
 
 echo ""
 echo -e "\033[38;5;148munbrick_8960 v1.1\033[39m"
@@ -25,33 +32,53 @@ ls devices/
 echo ""
 echo -n "Enter your device model from above, case-sensitive: "
 read MODEL
-
 if [ ! $(ls devices/ | grep $MODEL) ]; then
 	echo ""
 	echo "Invalid device model! Exiting."
 	exit 1
 else
-	printf '\033c'
 	MODELDIR="devices/$MODEL"
 fi
+echo "---------------------------------------------"
+echo ""
+echo "Supported chips:"
+ls hexmbn/chips/
+echo ""
+echo -n "Enter your chip model from above, case-sensitive: "
+read chip
+if [ $chip == "msm8930" ]; then
+	appendchip="8930"
+elif [ $chip == "msm8960" ]; then
+	appendchip="8960"
+elif [ $chip == "apq8064" ]; then
+	appendchip="8064"
+else
+	echo ""
+	echo "Invalid chip model! Exiting."
+	exit 1
+fi
 
+printf '\033c'
 echo -n "Checking for Qualcomm devices in QDLOAD mode... "
 if [ $USBID == $DLOADID ]; then 
 	echo -e "found!"
 	choice="n"
 	
-	echo -e -n "Do you wish to upload HEX & msimage.mbn now? [y/n]: "
+	echo -e -n "\nDo you wish to upload MPRG$appendchip.hex & "$appendchip"_msimage.mbn now? [y/n]: "
 	read -n 1 choice
 		
 	if [ $choice == "y" ]; then
+		echo -e "\nExecuting qdload.pl..."
 		echo ""
-		echo "Executing qdload.pl"
-		perl scripts/qdload.pl -pfile 8960_files/MPRG8960.hex -lfile 8960_files/8960_msimage.mbn -lreset
+		perl scripts/qdload.pl -pfile $chip/MPRG$appendchip.hex -lfile $chip/"$appendchip"_msimage.mbn -lreset
 		echo ""
 		echo "If HEX/MBN uploaded correctly, please wait a while and re-run unbrick.sh"
 		echo "to continue the unbricking session. A screen showing device options may appear;"
 		echo "close this new screen."
-		exit 
+		echo ""
+		echo "If there was any error, do NOT disconnect device (or else you might not"
+		echo "get it to connect anymore)! Try running script again."
+		exit 0
 	else
 		echo ""
 		echo "Operation cancelled. Exiting."
@@ -65,15 +92,14 @@ echo -e -n "\e[00m"
 echo -n "Checking for Qualcomm devices in SDBOOT mode... "
 if [ $USBID == $SDMODE ]; then
 	echo -e "found!"
-	echo ""
-	echo -e "Location: device node /dev$DEVICE"
+	echo -e "\nLocation: device node /dev$DEVICE"
 	echo -e "with USB PID/VID ID of \e[00;44m$USBID\e[00;31m"
-	echo -e "Detailed output is"
+	echo "Detailed output is"
 	echo -e "\e[00;33m$USBNAME\e[00m"
  
 	# Write back the MBR to sector 0 and EBF to sector 208801
 	echo ""
-	echo -e "Do you wish to write the MBR? \e[00;31mWarning, dangerous!\e[00m"
+	echo "Do you wish to write the MBR? \e[00;31mWarning, dangerous!\e[00m"
 	read -n 1 choice
 	echo ""
 	if [ $choice == "y" ]; then
