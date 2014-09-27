@@ -19,7 +19,6 @@ if [ $(whoami) != "root" ]; then
 	exit 1
 fi
 
-echo ""
 echo -e "\033[38;5;148munbrick_8960 v1.1\033[39m"
 echo ""
 echo "Originally by Darkspr1te, forked by aureljared."
@@ -39,7 +38,7 @@ if [ ! $(ls devices/ | grep $MODEL) ]; then
 else
 	MODELDIR="devices/$MODEL"
 fi
-echo "---------------------------------------------"
+echo -e "\n---------------------------------------------"
 echo ""
 echo "Supported chips:"
 ls hexmbn/chips/
@@ -57,6 +56,8 @@ else
 	echo "Invalid chip model! Exiting."
 	exit 1
 fi
+hexfile="MPRG$appendchip.hex"
+mbnfile=""$appendchip"_msimage.mbn"
 
 printf '\033c'
 echo -n "Checking for Qualcomm devices in QDLOAD mode... "
@@ -70,7 +71,7 @@ if [ $USBID == $DLOADID ]; then
 	if [ $choice == "y" ]; then
 		echo -e "\nExecuting qdload.pl..."
 		echo ""
-		perl scripts/qdload.pl -pfile $chip/MPRG$appendchip.hex -lfile $chip/"$appendchip"_msimage.mbn -lreset
+		perl scripts/qdload.pl -pfile hexmbn/chips/$chip/$hexfile -lfile hexmbn/chips/$chip/$mbnfile -lreset
 		echo ""
 		echo "If HEX/MBN uploaded correctly, please wait a while and re-run unbrick.sh"
 		echo "to continue the unbricking session. A screen showing device options may appear;"
@@ -111,7 +112,7 @@ if [ $USBID == $SDMODE ]; then
 		echo ""
 	fi
 
-	# SMD_HDR seems to be the modem partition, uncomment at your own risk
+	# SMD_HDR is unknown at the moment. Uncomment at your own risk
 	# dd if=smd_hdr.mbn of=/dev/sdb seek=1 count=102400 bs=512 
 
 	# These next few lines are for bootloader repair (to get ODIN mode).
@@ -135,7 +136,7 @@ if [ $USBID == $SDMODE ]; then
 	fi
 	
 	# boot.img only needed if it's damaged on the device.
-	# dd if=$MODELDIR/boot.img of=/dev/sdb  seek=237568 count=10240 bs=512 
+	# dd if=$MODELDIR/boot.img of=/dev/sdb  seek=137984 count=10240 bs=512 
 
 	echo -e "Do you wish to write TrustZone? \e[00;31mWarning, dangerous!\e[00m"
 	read -n 1 choice
