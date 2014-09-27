@@ -4,13 +4,13 @@ unbrick_8960
 ## What is it?
  
 This tool is designed to repair devices with Qualcomm chips MSM8660/MSM8960.
-It only works with devices that are stuck in QDLOAD (`05c6:9008`)/SDBOOT (`05c6:9025`) mode.
+It only works with devices that are stuck in QDLOAD (`05c6:9008`) / SDBOOT (`05c6:9025`) mode.
 Windows users, please see `readme-win.txt`.
 
 ## How do I use it?
 
 1. Connect device to USB port on a Linux PC. **Not tested under Windows via USB redirection!**
-2. Run `sudo ./brickfix` in a terminal.
+2. Run `sudo ./unbrick.sh` in a terminal.
 3. Follow on screen instructions.
 
 ## What does it do?
@@ -38,7 +38,7 @@ Go to [this XDA thread](http://forum.xda-developers.com/showthread.php?t=1914359
 writable parition0.bin file (python)
 * `qdload.pl` - A Perl script for talking in the HDLC framed DMSS & Streaming Protocols used by Qualcomm
 * `switchmode.sh` - Executes qdload.pl for msm8660 device upload
-* `get-part.sh` - **UNFINISHED** Tool by darkspr1te for creating partition tables in sfdisk format and .csv format
+* `get-part.sh` - **UNFINISHED** tool by darkspr1te for creating partition tables in sfdisk format and .csv format
 (to be used in the future to create partition0.bin plus more automated collection)
 * `tools/` - Folder containing armv5 (arm7 compatible) tools for partition manipulation and data collection
 * `ADB/` - Folder containing adb programs
