@@ -1,0 +1,264 @@
+[Version] 
+Signature="$Windows NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%MFGNAME%
+DriverVer=20/02/2010,1.0.0000.0
+
+[Manufacturer] 
+%MFGNAME%=QcomSerialPort, NT, NTamd64
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[QcomSerialPort.NT]
+%QcomDevice00% = DriverInstall, USB\VID_05C6&PID_3197&MI_01
+%QcomDevice6k%   = DriverInstall, USB\VID_05C6&PID_6000&MI_01
+%QcomDeviceNMEA% = DriverInstall, USB\VID_05C6&PID_6000&MI_02
+%QcomDevice7k%   = DriverInstall, USB\VID_05C6&PID_7000&MI_01
+%QcomDevice7k1%  = DriverInstall, USB\VID_05C6&PID_7001&MI_00
+%QcomDevice7k3%  = DriverInstall, USB\VID_05C6&PID_7001&MI_03
+%QcomDevice70020%  = DriverInstall, USB\VID_05C6&PID_7002&MI_00
+%QcomDevice70023%  = DriverInstall, USB\VID_05C6&PID_7002&MI_03
+%QcomDevice70024%  = DriverInstall, USB\VID_05C6&PID_7002&MI_04
+%QcomDevice71010%  = DriverInstall, USB\VID_05C6&PID_7101&MI_00
+%QcomDevice71015%  = DriverInstall, USB\VID_05C6&PID_7101&MI_05
+%QcomDevice71020%  = DriverInstall, USB\VID_05C6&PID_7102&MI_00
+%QcomDevice71025%  = DriverInstall, USB\VID_05C6&PID_7102&MI_05
+%QcomDevice71026%  = DriverInstall, USB\VID_05C6&PID_7102&MI_06
+%QcomDevice80000%  = DriverInstall, USB\VID_05C6&PID_8000&MI_00
+%QcomDevice80002%  = DriverInstall, USB\VID_05C6&PID_8000&MI_02
+%QcomDevice80010%  = DriverInstall, USB\VID_05C6&PID_8001&MI_00
+%QcomDevice80012%  = DriverInstall, USB\VID_05C6&PID_8001&MI_02
+%QcomDevice80020%  = DriverInstall, USB\VID_05C6&PID_8002&MI_00
+%QcomDevice80022%  = DriverInstall, USB\VID_05C6&PID_8002&MI_02
+%QcomDevice90080%  = DriverInstall, USB\VID_05C6&PID_9008
+%QcomDevice90000%  = DriverInstall, USB\VID_05C6&PID_9000&MI_00
+%QcomDevice90001%  = DriverInstall, USB\VID_05C6&PID_9000&MI_01
+%QcomDevice90010%  = DriverInstall, USB\VID_05C6&PID_9001&MI_00
+%QcomDevice90011%  = DriverInstall, USB\VID_05C6&PID_9001&MI_01
+%QcomDevice90020%  = DriverInstall, USB\VID_05C6&PID_9002&MI_00
+%QcomDevice90021%  = DriverInstall, USB\VID_05C6&PID_9002&MI_01
+%QcomDevice90030%  = DriverInstall, USB\VID_05C6&PID_9003&MI_00
+%QcomDevice90031%  = DriverInstall, USB\VID_05C6&PID_9003&MI_01
+%QcomDevice90032%  = DriverInstall, USB\VID_05C6&PID_9003&MI_02
+%QcomDevice32001%  = DriverInstall, USB\VID_05C6&PID_3200&MI_01
+%QcomDevice32002%  = DriverInstall, USB\VID_05C6&PID_3200&MI_02
+%QcomDevice90040%  = DriverInstall, USB\VID_05C6&PID_9004&MI_00
+%QcomDevice90050%  = DriverInstall, USB\VID_05C6&PID_9005&MI_00
+%QcomDevice90060%  = DriverInstall, USB\VID_05C6&PID_9006&MI_00
+%QcomDevice900A0%  = DriverInstall, USB\VID_05C6&PID_900A&MI_00
+%QcomDevice900A1%  = DriverInstall, USB\VID_05C6&PID_900A&MI_01
+%QcomDevice900B0%  = DriverInstall, USB\VID_05C6&PID_900B&MI_00
+%QcomDevice900C0%  = DriverInstall, USB\VID_05C6&PID_900C&MI_00
+%QcomDevice900C1%  = DriverInstall, USB\VID_05C6&PID_900C&MI_01
+%QcomDevice900D0%  = DriverInstall, USB\VID_05C6&PID_900D&MI_00
+%QcomDevice900D1%  = DriverInstall, USB\VID_05C6&PID_900D&MI_01
+%QcomDevice900E0%  = DriverInstall, USB\VID_05C6&PID_900E
+%QcomDevice90120%  = DriverInstall, USB\VID_05C6&PID_9012&MI_00
+%QcomDevice90130%  = DriverInstall, USB\VID_05C6&PID_9013&MI_00
+%QcomDevice90160%  = DriverInstall, USB\VID_05C6&PID_9016&MI_00
+%QcomDevice90162%  = DriverInstall, USB\VID_05C6&PID_9016&MI_02
+%QcomDevice90170%  = DriverInstall, USB\VID_05C6&PID_9017&MI_00
+%QcomDevice90172%  = DriverInstall, USB\VID_05C6&PID_9017&MI_02
+%QcomDevice90180%  = DriverInstall, USB\VID_05C6&PID_9018&MI_00
+%QcomDevice90183%  = DriverInstall, USB\VID_05C6&PID_9018&MI_03
+%QcomDevice90191%  = DriverInstall, USB\VID_05C6&PID_9019&MI_01
+%QcomDevice90192%  = DriverInstall, USB\VID_05C6&PID_9019&MI_02
+%QcomDevice901C0%  = DriverInstall, USB\VID_05C6&PID_901C&MI_00
+%QcomDevice91000%  = DriverInstall, USB\VID_05C6&PID_9100&MI_00
+%QcomDevice91001%  = DriverInstall, USB\VID_05C6&PID_9100&MI_01
+%QcomDevice91010%  = DriverInstall, USB\VID_05C6&PID_9101&MI_00
+%QcomDevice91011%  = DriverInstall, USB\VID_05C6&PID_9101&MI_01
+%QcomDevice91012%  = DriverInstall, USB\VID_05C6&PID_9101&MI_02
+%QcomDevice91014%  = DriverInstall, USB\VID_05C6&PID_9101&MI_04
+%QcomDevice91015%  = DriverInstall, USB\VID_05C6&PID_9101&MI_05
+%QcomDevice94020%  = DriverInstall, USB\VID_05C6&PID_9402&MI_00
+%QcomDevice94021%  = DriverInstall, USB\VID_05C6&PID_9402&MI_01
+%QcomDeviceF0051%  = DriverInstall, USB\VID_05C6&PID_F005&MI_01
+%QcomDevice31991%  = DriverInstall, USB\VID_05C6&PID_3199&MI_01
+%QcomDevice31992%  = DriverInstall, USB\VID_05C6&PID_3199&MI_02
+%QcomDevice31993%  = DriverInstall, USB\VID_05C6&PID_3199&MI_03
+%QcomDevice319A1%  = DriverInstall, USB\VID_05C6&PID_319A&MI_01
+%QcomDevice319A2%  = DriverInstall, USB\VID_05C6&PID_319A&MI_02
+%QcomDevice319A3%  = DriverInstall, USB\VID_05C6&PID_319A&MI_03
+%QcomDeviceF00D%   = DriverInstall, USB\VID_05C6&PID_F00D
+
+
+[QcomSerialPort.NTamd64]
+%QcomDevice00% = DriverInstall, USB\VID_05C6&PID_3197&MI_01
+%QcomDevice6k%   = DriverInstall, USB\VID_05C6&PID_6000&MI_01
+%QcomDeviceNMEA% = DriverInstall, USB\VID_05C6&PID_6000&MI_02
+%QcomDevice7k%   = DriverInstall, USB\VID_05C6&PID_7000&MI_01
+%QcomDevice7k1%  = DriverInstall, USB\VID_05C6&PID_7001&MI_00
+%QcomDevice7k3%  = DriverInstall, USB\VID_05C6&PID_7001&MI_03
+%QcomDevice70020%  = DriverInstall, USB\VID_05C6&PID_7002&MI_00
+%QcomDevice70023%  = DriverInstall, USB\VID_05C6&PID_7002&MI_03
+%QcomDevice70024%  = DriverInstall, USB\VID_05C6&PID_7002&MI_04
+%QcomDevice71010%  = DriverInstall, USB\VID_05C6&PID_7101&MI_00
+%QcomDevice71015%  = DriverInstall, USB\VID_05C6&PID_7101&MI_05
+%QcomDevice71020%  = DriverInstall, USB\VID_05C6&PID_7102&MI_00
+%QcomDevice71025%  = DriverInstall, USB\VID_05C6&PID_7102&MI_05
+%QcomDevice71026%  = DriverInstall, USB\VID_05C6&PID_7102&MI_06
+%QcomDevice80000%  = DriverInstall, USB\VID_05C6&PID_8000&MI_00
+%QcomDevice80002%  = DriverInstall, USB\VID_05C6&PID_8000&MI_02
+%QcomDevice80010%  = DriverInstall, USB\VID_05C6&PID_8001&MI_00
+%QcomDevice80012%  = DriverInstall, USB\VID_05C6&PID_8001&MI_02
+%QcomDevice80020%  = DriverInstall, USB\VID_05C6&PID_8002&MI_00
+%QcomDevice80022%  = DriverInstall, USB\VID_05C6&PID_8002&MI_02
+%QcomDevice90080%  = DriverInstall, USB\VID_05C6&PID_9008
+%QcomDevice90000%  = DriverInstall, USB\VID_05C6&PID_9000&MI_00
+%QcomDevice90001%  = DriverInstall, USB\VID_05C6&PID_9000&MI_01
+%QcomDevice90010%  = DriverInstall, USB\VID_05C6&PID_9001&MI_00
+%QcomDevice90011%  = DriverInstall, USB\VID_05C6&PID_9001&MI_01
+%QcomDevice90020%  = DriverInstall, USB\VID_05C6&PID_9002&MI_00
+%QcomDevice90021%  = DriverInstall, USB\VID_05C6&PID_9002&MI_01
+%QcomDevice90030%  = DriverInstall, USB\VID_05C6&PID_9003&MI_00
+%QcomDevice90031%  = DriverInstall, USB\VID_05C6&PID_9003&MI_01
+%QcomDevice90032%  = DriverInstall, USB\VID_05C6&PID_9003&MI_02
+%QcomDevice32001%  = DriverInstall, USB\VID_05C6&PID_3200&MI_01
+%QcomDevice32002%  = DriverInstall, USB\VID_05C6&PID_3200&MI_02
+%QcomDevice90040%  = DriverInstall, USB\VID_05C6&PID_9004&MI_00
+%QcomDevice90050%  = DriverInstall, USB\VID_05C6&PID_9005&MI_00
+%QcomDevice90060%  = DriverInstall, USB\VID_05C6&PID_9006&MI_00
+%QcomDevice900A0%  = DriverInstall, USB\VID_05C6&PID_900A&MI_00
+%QcomDevice900A1%  = DriverInstall, USB\VID_05C6&PID_900A&MI_01
+%QcomDevice900B0%  = DriverInstall, USB\VID_05C6&PID_900B&MI_00
+%QcomDevice900C0%  = DriverInstall, USB\VID_05C6&PID_900C&MI_00
+%QcomDevice900C1%  = DriverInstall, USB\VID_05C6&PID_900C&MI_01
+%QcomDevice900D0%  = DriverInstall, USB\VID_05C6&PID_900D&MI_00
+%QcomDevice900D1%  = DriverInstall, USB\VID_05C6&PID_900D&MI_01
+%QcomDevice900E0%  = DriverInstall, USB\VID_05C6&PID_900E
+%QcomDevice90120%  = DriverInstall, USB\VID_05C6&PID_9012&MI_00
+%QcomDevice90130%  = DriverInstall, USB\VID_05C6&PID_9013&MI_00
+%QcomDevice90160%  = DriverInstall, USB\VID_05C6&PID_9016&MI_00
+%QcomDevice90162%  = DriverInstall, USB\VID_05C6&PID_9016&MI_02
+%QcomDevice90170%  = DriverInstall, USB\VID_05C6&PID_9017&MI_00
+%QcomDevice90172%  = DriverInstall, USB\VID_05C6&PID_9017&MI_02
+%QcomDevice90180%  = DriverInstall, USB\VID_05C6&PID_9018&MI_00
+%QcomDevice90183%  = DriverInstall, USB\VID_05C6&PID_9018&MI_03
+%QcomDevice90191%  = DriverInstall, USB\VID_05C6&PID_9019&MI_01
+%QcomDevice90192%  = DriverInstall, USB\VID_05C6&PID_9019&MI_02
+%QcomDevice901C0%  = DriverInstall, USB\VID_05C6&PID_901C&MI_00
+%QcomDevice91000%  = DriverInstall, USB\VID_05C6&PID_9100&MI_00
+%QcomDevice91001%  = DriverInstall, USB\VID_05C6&PID_9100&MI_01
+%QcomDevice91010%  = DriverInstall, USB\VID_05C6&PID_9101&MI_00
+%QcomDevice91011%  = DriverInstall, USB\VID_05C6&PID_9101&MI_01
+%QcomDevice91012%  = DriverInstall, USB\VID_05C6&PID_9101&MI_02
+%QcomDevice91014%  = DriverInstall, USB\VID_05C6&PID_9101&MI_04
+%QcomDevice91015%  = DriverInstall, USB\VID_05C6&PID_9101&MI_05
+%QcomDevice94020%  = DriverInstall, USB\VID_05C6&PID_9402&MI_00
+%QcomDevice94021%  = DriverInstall, USB\VID_05C6&PID_9402&MI_01
+%QcomDeviceF0051%  = DriverInstall, USB\VID_05C6&PID_F005&MI_01
+%QcomDevice31991%  = DriverInstall, USB\VID_05C6&PID_3199&MI_01
+%QcomDevice31992%  = DriverInstall, USB\VID_05C6&PID_3199&MI_02
+%QcomDevice31993%  = DriverInstall, USB\VID_05C6&PID_3199&MI_03
+%QcomDevice319A1%  = DriverInstall, USB\VID_05C6&PID_319A&MI_01
+%QcomDevice319A2%  = DriverInstall, USB\VID_05C6&PID_319A&MI_02
+%QcomDevice319A3%  = DriverInstall, USB\VID_05C6&PID_319A&MI_03
+%QcomDeviceF00D%   = DriverInstall, USB\VID_05C6&PID_F00D
+
+
+[DriverInstall.NT]
+CopyFiles=RiffBoxDccFiles
+AddReg=DriverInstall.NT.AddReg
+
+[DriverInstall.NT.AddReg]
+HKR,,NTMPDriver,,qcusbser.sys
+HKR,,PortSubClass,1,01
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[DestinationDirs]
+RiffBoxDccFiles=12
+DefaultDestDir = 12
+
+[RiffBoxDccFiles]
+qcusbser.sys,,,0x20
+
+[DriverInstall.NT.Services]
+AddService=qcusbser, 0x00000002, RIFF_USBSerialService
+
+[RIFF_USBSerialService]
+DisplayName		=%QCUSBSER%
+ServiceType		=1
+StartType		=3
+ErrorControl	=1
+ServiceBinary	=%12%\qcusbser.sys 
+
+[Strings]
+MFGNAME = "RIFF BOX Limited (c), 2012"
+QCUSBSER = "Qualcomm USB Device for Legacy Serial Communication"
+QcomSrcDisk = "QUALCOMM USB Driver Disk"
+QUALCOMM   = "Qualcomm Incorporated"
+QcomDevice00 = "Qualcomm Diagnostics Interface 3197"
+QcomDevice6k = "Qualcomm Diagnostics Interface 6000"
+QcomDeviceNMEA = "Qualcomm NMEA Device"
+QcomDevice7k = "Qualcomm Diagnostics Interface 7000"
+QcomDevice7k1 = "Qualcomm RRDM 7001"
+QcomDevice7k3 = "Qualcomm Diagnostics Interface 7001"
+QcomDevice70020 = "Qualcomm RRDM 7002"
+QcomDevice70023 = "Qualcomm Diagnostics Interface 7002"
+QcomDevice70024 = "Qualcomm NMEA 7002"
+QcomDevice71010 = "Qualcomm RRDM 7101"
+QcomDevice71015 = "Qualcomm Diagnostics Interface 7101"
+QcomDevice71020 = "Qualcomm RRDM 7102"
+QcomDevice71025 = "Qualcomm Diagnostics Interface 7102"
+QcomDevice71026 = "Qualcomm NMEA 7102"
+QcomDevice80000 = "Qualcomm HS-USB Diagnostics 8000"
+QcomDevice80002 = "Qualcomm HS-USB NMEA 8000"
+QcomDevice80010 = "Qualcomm HS-USB Diagnostics 8001"
+QcomDevice80012 = "Qualcomm HS-USB NMEA 8001"
+QcomDevice80020 = "Qualcomm HS-USB Diagnostics 8002"
+QcomDevice80022 = "Qualcomm HS-USB NMEA 8002"
+QcomDevice90080 = "Qualcomm HS-USB QDLoader 9008"
+QcomDevice90000 = "Qualcomm HS-USB Diagnostics 9000"
+QcomDevice90001 = "Qualcomm HS-USB NMEA 9000"
+QcomDevice90010 = "Qualcomm HS-USB Diagnostics 9001"
+QcomDevice90011 = "Qualcomm HS-USB NMEA 9001"
+QcomDevice90020 = "Qualcomm HS-USB Diagnostics 9002"
+QcomDevice90021 = "Qualcomm HS-USB NMEA 9002"
+QcomDevice90030 = "Qualcomm HS-USB Diagnostics 9003"
+QcomDevice90031 = "Qualcomm HS-USB NMEA 9003"
+QcomDevice90032 = "Qualcomm HS-USB AT Port 9003"
+QcomDevice32001 = "Qualcomm WinMobile Diagnostics 3200"
+QcomDevice32002 = "Qualcomm WinMobile NMEA 3200"
+QcomDevice90040 = "Qualcomm HS-USB Diagnostics 9004"
+QcomDevice90050 = "Qualcomm HS-USB Diagnostics 9005"
+QcomDevice90060 = "Qualcomm HS-USB Diagnostics 9006"
+QcomDevice900A0 = "Qualcomm HS-USB Diagnostics 900A"
+QcomDevice900A1 = "Qualcomm HS-USB NMEA 900A"
+QcomDevice900B0 = "Qualcomm HS-USB Diagnostics 900B"
+QcomDevice900C0 = "Qualcomm HS-USB Diagnostics 900C"
+QcomDevice900C1 = "Qualcomm HS-USB NMEA 900C"
+QcomDevice900D0 = "Qualcomm HS-USB Diagnostics 900D"
+QcomDevice900D1 = "Qualcomm HS-USB NMEA 900D"
+QcomDevice900E0 = "Qualcomm HS-USB Diagnostics 900E"
+QcomDevice90120 = "Qualcomm HS-USB Diagnostics 9012"
+QcomDevice90130 = "Qualcomm HS-USB Diagnostics 9013"
+QcomDevice90160 = "Qualcomm HS-USB Diagnostics 9016"
+QcomDevice90162 = "Qualcomm HS-USB NMEA 9016"
+QcomDevice90170 = "Qualcomm HS-USB Diagnostics 9017"
+QcomDevice90172 = "Qualcomm HS-USB NMEA 9017"
+QcomDevice90180 = "Qualcomm HS-USB Android DIAG 9018"
+QcomDevice90183 = "Qualcomm HS-USB Android GPS 9018"
+QcomDevice90191 = "Qualcomm WinMobile Diagnostics 9019"
+QcomDevice90192 = "Qualcomm WinMobile NMEA 9019"
+QcomDevice901C0 = "Qualcomm HS-USB Diagnostics 901C"
+QcomDevice91000 = "Qualcomm Symbian USB Diagnostics 9100"
+QcomDevice91001 = "Qualcomm Symbian USB Trace 9100"
+QcomDevice91010 = "Qualcomm Symbian USB Diagnostics 9101"
+QcomDevice91011 = "Qualcomm Symbian USB Trace 9101"
+QcomDevice91012 = "Qualcomm Symbian USB IP 9101"
+QcomDevice91014 = "Qualcomm Symbian USB General Purpose 9101"
+QcomDevice91015 = "Qualcomm Symbian USB Shell 9101"
+QcomDevice94020 = "Qualcomm HS-USB Diagnostics 9402"
+QcomDevice94021 = "Qualcomm HS-USB NMEA 9402"
+QcomDeviceF0051 = "Qualcomm HS-USB Diagnostics F005"
+QcomDevice31991 = "Qualcomm WinMobile Diagnostics 3199"
+QcomDevice31992 = "Qualcomm WinMobile NMEA 3199"
+QcomDevice31993 = "Qualcomm WinMobile TRACE 3199"
+QcomDevice319A1 = "Qualcomm WinMobile Diagnostics 319A"
+QcomDevice319A2 = "Qualcomm WinMobile NMEA 319A"
+QcomDevice319A3 = "Qualcomm WinMobile TRACE 319A"
+QcomDeviceF00D  = "Qualcomm Mary Samsonite Profiling Board"
+
