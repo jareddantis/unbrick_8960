@@ -8,8 +8,8 @@ It only works with devices that are stuck in QDLOAD (`05c6:9008`) / SDBOOT (`05c
 
 ## How do I use it?
 
-1. Connect device to USB port on a Linux PC.
-2. Run `sudo ./unbrick.sh` in a terminal. Make sure it is executable.
+1. Connect device to a USB port on a Linux PC.
+2. Run `sudo ./unbrick.sh` in a terminal. Make sure it is executable (`chmod +x ./unbrick.sh`).
 3. Follow on screen instructions.
 
 ## What does it do?
@@ -30,6 +30,19 @@ which switches the device back to QDLOAD mode, or emergency boot.
 
 Go to [this XDA thread](http://forum.xda-developers.com/showthread.php?t=1914359) for further details.
 
+## This tool doesn't work at all. What's the deal?
+
+This happens a lot, actually. The truth is, the hex/mbn files for each chip usually differs for each phone; although the phones in question do have the same chip. This is why you should really be backing up these files before your device goes kaput.
+
+Refer to the next section.
+
+## My chip isn't listed. How do I get the files needed?
+
+Unfortunately these files are only available through leaks, and as such are hard to come upon. If you do have the `MPRGxxxx.hex` file for your device and you only need the `xxxx_msimage.mbn`, [this guide](http://cellphonetrackers.org/wp-content/uploads/8x60_msimage.mbn_.txt) is worth a try. (You'll need Windows and the [QPST software suite](http://d-h.st/qAy) for this, though.)
+
+Another option would be to point a friend with the exact same device as yours to the guide above and have him/her give you the backed up files.
+
+If you really don't have files available, I regret having to say this but your only hope is, most probably, a JTAG box.
 
 ## Additional Tools (for developers) 
 
@@ -43,7 +56,6 @@ writable parition0.bin file
 * `binaries/hex2bin` - convert your xxxxMPRG.hex file to bin for use with qdload
 * `qpst-drivers/` - Windows drivers (only included for convenience)
 
- 
 ## Credits
 
 * [darkspr1te](https://github.com/mohammad92) for the original MSM8660 tool (`brixfix`)
