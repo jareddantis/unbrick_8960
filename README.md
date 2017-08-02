@@ -51,6 +51,7 @@ writable parition0.bin file
 * `scripts/qdload.pl` - Perl script for talking in the HDLC framed DMSS & Streaming Protocols used by Qualcomm
 * `scripts/get-part.sh` - **UNFINISHED** script by darkspr1te for creating partition tables in sfdisk format and .csv format
 (to be used in the future to create partition0.bin plus more automated collection)
+* `scripts/get-partitions.sh` - Script for pulling the partition table from a **working** device
 * `scripts/backup.sh` - Script for pulling needed partitions from a **working** device
 * `binaries/` - Folder containing armv5 (armv7 compatible) tools for partition manipulation and data collection
 * `binaries/hex2bin` - convert your xxxxMPRG.hex file to bin for use with qdload
